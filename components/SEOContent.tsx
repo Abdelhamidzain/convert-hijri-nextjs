@@ -24,24 +24,9 @@ const ZapIcon: React.FC<IconProps> = (props) => (
   </svg>
 );
 
-const GlobeIcon: React.FC<IconProps> = (props) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6 text-primary" {...props}>
-    <circle cx="12" cy="12" r="10" />
-    <line x1="2" y1="12" x2="22" y2="12" />
-    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-  </svg>
-);
-
 const ShieldIcon: React.FC<IconProps> = (props) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6 text-primary" {...props}>
     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-  </svg>
-);
-
-const ClockIcon: React.FC<IconProps> = (props) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6 text-primary" {...props}>
-    <circle cx="12" cy="12" r="10" />
-    <polyline points="12 6 12 12 16 14" />
   </svg>
 );
 
@@ -63,7 +48,7 @@ const Skeleton = ({ className = "" }: { className?: string }) => (
   <div className={`skeleton ${className}`} />
 );
 
-// ============ Main SEOContent Component ============
+// ============ Main SEOContent Component (500 كلمة) ============
 const SEOContent: React.FC = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   
@@ -73,439 +58,180 @@ const SEOContent: React.FC = () => {
   }, []);
 
   const hijriMonths = [
-    { num: 1, name: "محرم", note: "بداية السنة الهجرية" },
-    { num: 2, name: "صفر" },
-    { num: 3, name: "ربيع الأول", note: "المولد النبوي" },
-    { num: 4, name: "ربيع الآخر" },
-    { num: 5, name: "جمادى الأولى" },
-    { num: 6, name: "جمادى الآخرة" },
-    { num: 7, name: "رجب", note: "الإسراء والمعراج" },
-    { num: 8, name: "شعبان" },
-    { num: 9, name: "رمضان", note: "شهر الصيام" },
-    { num: 10, name: "شوال", note: "عيد الفطر" },
-    { num: 11, name: "ذو القعدة" },
-    { num: 12, name: "ذو الحجة", note: "الحج والأضحى" },
+    { num: 1, name: "محرم" }, { num: 2, name: "صفر" },
+    { num: 3, name: "ربيع الأول" }, { num: 4, name: "ربيع الآخر" },
+    { num: 5, name: "جمادى الأولى" }, { num: 6, name: "جمادى الآخرة" },
+    { num: 7, name: "رجب" }, { num: 8, name: "شعبان" },
+    { num: 9, name: "رمضان" }, { num: 10, name: "شوال" },
+    { num: 11, name: "ذو القعدة" }, { num: 12, name: "ذو الحجة" },
   ];
 
-  const occasions = [
-    "شهر رمضان - شهر الصيام المبارك بالتقويم الهجري",
-    "عيد الفطر - أول أيام شوال بالتقويم الهجري والميلادي",
-    "موسم الحج - في شهر ذي الحجة بالتقويم الهجري",
-    "عيد الأضحى - العاشر من ذي الحجة هجري وميلادي",
-    "المولد النبوي - 12 ربيع الأول هجري وميلادي",
-    "يوم عاشوراء - 10 محرم بالتقويم الهجري",
-  ];
-
-  const SectionPlaceholder = ({ minHeight = "200px" }: { minHeight?: string }) => (
-    <div className="bg-card rounded-2xl p-6 md:p-8 shadow-soft border border-border/30" style={{ minHeight }}>
-      <div className="flex items-center gap-3 mb-4">
-        <Skeleton className="w-12 h-12 rounded-lg" />
-        <div className="flex-1 space-y-2">
-          <Skeleton className="h-6 w-3/4" />
-          <Skeleton className="h-4 w-1/2" />
-        </div>
-      </div>
-      <div className="space-y-3">
-        <Skeleton className="h-4 w-full" />
-        <Skeleton className="h-4 w-5/6" />
-        <Skeleton className="h-4 w-4/6" />
-      </div>
+  const SectionPlaceholder = ({ minHeight = "150px" }: { minHeight?: string }) => (
+    <div className="bg-card rounded-2xl p-6 shadow-soft border border-border/30" style={{ minHeight }}>
+      <Skeleton className="h-6 w-3/4 mb-4" />
+      <Skeleton className="h-4 w-full mb-2" />
+      <Skeleton className="h-4 w-5/6" />
     </div>
   );
 
   return (
-    <section className="mt-16 space-y-12">
+    <section className="mt-12 space-y-8">
       {/* Quick Answer - التاريخ الهجري اليوم */}
       {!isLoaded ? (
-        <div className="bg-primary/5 rounded-2xl p-6 md:p-8 border-2 border-primary/20" style={{ minHeight: '140px' }}>
-          <Skeleton className="h-8 w-2/3 mb-4" />
-          <div className="space-y-2">
-            <Skeleton className="h-4 w-full" />
-            <Skeleton className="h-4 w-5/6" />
-          </div>
-        </div>
+        <SectionPlaceholder minHeight="100px" />
       ) : (
-        <article className="bg-primary/5 rounded-2xl p-6 md:p-8 border-2 border-primary/20">
-          <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
+        <article className="bg-primary/5 rounded-2xl p-6 border-2 border-primary/20">
+          <h2 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
             <StarIcon />
             التاريخ الهجري اليوم - تحويل التاريخ بسهولة
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            استخدم أداة <strong>تحويل التاريخ</strong> لمعرفة <strong>التاريخ الهجري اليوم</strong> والتاريخ الميلادي بدقة عالية.
-            نوفر لك أسرع طريقة <strong>لتحويل التاريخ من هجري إلى ميلادي</strong> أو <strong>تحويل التاريخ من ميلادي</strong> إلى هجري <strong>والعكس بسهولة</strong> تامة.
-            محول التاريخ الهجري يعتمد على <strong>تقويم أم القرى</strong> الرسمي.
+          <p className="text-muted-foreground leading-relaxed">
+            استخدم أداة <strong>تحويل التاريخ</strong> لمعرفة <strong>التاريخ الهجري اليوم</strong> والتاريخ الميلادي بدقة.
+            نوفر لك <strong>تحويل التاريخ من هجري إلى ميلادي</strong> أو <strong>والعكس بسهولة</strong> باستخدام <strong>تقويم أم القرى</strong>.
           </p>
         </article>
       )}
 
-      {/* What is Hijri Calendar - التقويم الهجري والميلادي */}
+      {/* What is Hijri Calendar */}
       {!isLoaded ? (
-        <SectionPlaceholder minHeight="300px" />
+        <SectionPlaceholder minHeight="180px" />
       ) : (
-        <article className="bg-card rounded-2xl p-6 md:p-8 shadow-soft border border-border/30">
-          <div className="flex items-center gap-3 mb-4">
+        <article className="bg-card rounded-2xl p-6 shadow-soft border border-border/30">
+          <div className="flex items-center gap-3 mb-3">
             <div className="p-2 rounded-lg bg-primary/10">
               <MoonIcon />
             </div>
-            <h2 className="text-2xl font-bold text-foreground">
+            <h2 className="text-xl font-bold text-foreground">
               ما هو التقويم الهجري والميلادي؟
             </h2>
           </div>
-          <div className="text-foreground/80 leading-relaxed space-y-4">
-            <p>
-              <strong>التقويم الهجري</strong> (أو التقويم الإسلامي - Hijri Calendar) هو التقويم القمري الذي يعتمده
-              المسلمون لتحديد المناسبات الدينية. يُعرف أيضاً باسم <strong>التاريخ الهجري</strong> نسبة لهجرة النبي محمد ﷺ 
-              من مكة إلى المدينة المنورة. <strong>تحويل التاريخ من هجري إلى ميلادي والعكس</strong> ضروري للمعاملات 
-              الرسمية في المملكة العربية السعودية.
-            </p>
-            <p>
-              يتكون العام <strong>الهجري</strong> من 12 شهراً قمرياً، ويبلغ عدد أيامه 354 أو 355 يوماً.
-              لذلك <strong>التاريخ الهجري</strong> يختلف عن <strong>التاريخ الميلادي</strong> كل عام، مما يجعل 
-              <strong> تحويل التاريخ من هجري الى ميلادي بسهولة</strong> أمراً ضرورياً. <strong>خدمة تحويل التاريخ</strong> توفر لك الدقة المطلوبة.
-            </p>
-            <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">
-              المناسبات الدينية بالتقويم الهجري والميلادي:
-            </h3>
-            <ul className="list-none space-y-2 mt-4">
-              {occasions.map((item, i) => (
-                <li key={i} className="flex items-center gap-2">
-                  <CheckIcon />
-                  <span className="text-foreground/80">{item}</span>
-                </li>
-              ))}
-            </ul>
+          <p className="text-foreground/80 leading-relaxed">
+            <strong>التقويم الهجري</strong> (Hijri Calendar) قمري يعتمده المسلمون لتحديد المناسبات الدينية.
+            يتكون العام <strong>الهجري</strong> من 12 شهراً (354 يوماً)، بينما <strong>الميلادي</strong> شمسي (365 يوماً).
+            <strong> تحويل التاريخ من هجري إلى ميلادي والعكس</strong> ضروري للمعاملات الرسمية في المملكة السعودية.
+          </p>
+        </article>
+      )}
+
+      {/* Features Section */}
+      {!isLoaded ? (
+        <SectionPlaceholder minHeight="200px" />
+      ) : (
+        <article className="bg-card rounded-2xl p-6 shadow-soft border border-border/30">
+          <h2 className="text-xl font-bold text-foreground mb-4">
+            مميزات أداة تحويل التاريخ الهجري والميلادي
+          </h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="flex gap-3">
+              <div className="p-2 rounded-lg bg-primary/10 h-fit">
+                <ZapIcon />
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground text-sm">تحويل فوري</h3>
+                <p className="text-foreground/70 text-sm">
+                  <strong>تحويل التاريخ من هجري إلى ميلادي والعكس</strong> بضغطة زر <strong>بسهولة</strong>
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <div className="p-2 rounded-lg bg-primary/10 h-fit">
+                <ShieldIcon />
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground text-sm">دقة عالية</h3>
+                <p className="text-foreground/70 text-sm">
+                  نستخدم <strong>التقويم الهجري</strong> (<strong>أم القرى</strong>) <strong>لتحويل التاريخ</strong> بدقة
+                </p>
+              </div>
+            </div>
           </div>
         </article>
       )}
 
-      {/* Conversion Guide - تحويل التاريخ من هجري إلى ميلادي */}
+      {/* How to Use */}
       {!isLoaded ? (
-        <SectionPlaceholder minHeight="250px" />
+        <SectionPlaceholder minHeight="150px" />
       ) : (
-        <article className="bg-card rounded-2xl p-6 md:p-8 shadow-soft border border-border/30">
-          <div className="flex items-center gap-3 mb-4">
+        <article className="bg-card rounded-2xl p-6 shadow-soft border border-border/30">
+          <div className="flex items-center gap-3 mb-3">
             <div className="p-2 rounded-lg bg-primary/10">
               <BookIcon />
             </div>
-            <h2 className="text-2xl font-bold text-foreground">
-              كيفية تحويل التاريخ من هجري إلى ميلادي والعكس
+            <h2 className="text-xl font-bold text-foreground">
+              كيفية تحويل التاريخ من هجري إلى ميلادي
             </h2>
           </div>
-          <div className="text-foreground/80 leading-relaxed space-y-4">
-            <p>
-              <strong>تحويل التاريخ</strong> من <strong>هجري</strong> لميلادي أصبح سهلاً مع <strong>أداة تحويل التاريخ</strong> المجانية. 
-              سواء كنت تريد <strong>تحويل التاريخ من هجري إلى ميلادي</strong> أو <strong>تحويل التاريخ من ميلادي</strong> إلى <strong>هجري والعكس</strong>، 
-              نوفر لك نتائج دقيقة وفورية <strong>بسهولة</strong>. <strong>محول التاريخ الهجري</strong> يستخدم <strong>تقويم أم القرى</strong> الرسمي 
-              <strong>لتحويل التاريخ</strong> بدقة عالية.
+          <div className="text-foreground/80 leading-relaxed">
+            <p className="mb-3">
+              <strong>تحويل التاريخ</strong> أصبح سهلاً مع <strong>أداة تحويل التاريخ</strong> المجانية.
+              سواء كنت تريد <strong>تحويل التاريخ من هجري إلى ميلادي</strong> أو <strong>والعكس</strong>، نوفر لك نتائج دقيقة <strong>بسهولة</strong>.
             </p>
-            <h3 className="text-lg font-semibold text-foreground mt-4">
-              خطوات تحويل التاريخ من هجري الى ميلادي بسهولة:
-            </h3>
-            <ol className="list-decimal list-inside space-y-2 mr-4">
-              <li>اختر نوع <strong>التحويل</strong>: <strong>التاريخ من ميلادي</strong> إلى <strong>هجري</strong> أو <strong>التاريخ من هجري إلى ميلادي</strong></li>
-              <li>أدخل <strong>التاريخ</strong> المراد <strong>تحويل</strong>ه (اليوم، الشهر، السنة <strong>الهجرية</strong> أو <strong>الميلادي</strong>ة)</li>
-              <li>اضغط على زر "<strong>تحويل</strong>" للحصول على النتيجة فوراً بدقة</li>
-              <li><strong>التحويل</strong> يتم وفق <strong>التقويم الهجري</strong> الرسمي (<strong>أم القرى</strong>)</li>
+            <ol className="list-decimal list-inside space-y-1 text-sm">
+              <li>اختر <strong>التاريخ من هجري إلى ميلادي</strong> أو <strong>من ميلادي</strong> إلى <strong>هجري</strong></li>
+              <li>أدخل <strong>التاريخ</strong> المراد <strong>تحويل</strong>ه</li>
+              <li>اضغط "<strong>تحويل</strong>" للحصول على النتيجة فوراً</li>
             </ol>
           </div>
         </article>
       )}
 
-      {/* Features Section - مميزات أداة تحويل التاريخ */}
+      {/* Hijri Months */}
       {!isLoaded ? (
-        <SectionPlaceholder minHeight="280px" />
+        <SectionPlaceholder minHeight="150px" />
       ) : (
-        <article className="bg-card rounded-2xl p-6 md:p-8 shadow-soft border border-border/30">
-          <h2 className="text-2xl font-bold text-foreground mb-6">
-            مميزات أداة تحويل التاريخ الهجري والميلادي
+        <article className="bg-card rounded-2xl p-6 shadow-soft border border-border/30">
+          <h2 className="text-xl font-bold text-foreground mb-3">
+            الشهور بالتقويم الهجري - التاريخ الهجري والميلادي
           </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="flex gap-4">
-              <div className="p-3 rounded-xl bg-primary/10 h-fit">
-                <ZapIcon />
-              </div>
-              <div>
-                <h3 className="font-semibold text-foreground mb-1">
-                  تحويل التاريخ فوري وسريع
-                </h3>
-                <p className="text-foreground/70">
-                  <strong>تحويل التاريخ من هجري إلى ميلادي والعكس</strong> بضغطة زر واحدة <strong>بسهولة</strong> بدون انتظار
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="p-3 rounded-xl bg-primary/10 h-fit">
-                <ShieldIcon />
-              </div>
-              <div>
-                <h3 className="font-semibold text-foreground mb-1">
-                  دقة عالية (التقويم الهجري - أم القرى)
-                </h3>
-                <p className="text-foreground/70">
-                  نستخدم <strong>التقويم الهجري</strong> الرسمي <strong>لتحويل التاريخ</strong> بدقة مطلقة
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="p-3 rounded-xl bg-primary/10 h-fit">
-                <GlobeIcon />
-              </div>
-              <div>
-                <h3 className="font-semibold text-foreground mb-1">
-                  خدمة تحويل التاريخ مجانية
-                </h3>
-                <p className="text-foreground/70">
-                  <strong>خدمة تحويل التاريخ</strong> متاحة على الإنترنت مجاناً طوال الوقت <strong>بسهولة</strong>
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="p-3 rounded-xl bg-primary/10 h-fit">
-                <ClockIcon />
-              </div>
-              <div>
-                <h3 className="font-semibold text-foreground mb-1">
-                  تحويل ثنائي الاتجاه والعكس
-                </h3>
-                <p className="text-foreground/70">
-                  <strong>التاريخ من هجري الى ميلادي</strong> أو <strong>التاريخ من ميلادي</strong> إلى <strong>هجري بسهولة</strong>
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
-      )}
-
-      {/* Detailed Guide - دليل تحويل التاريخ الشامل */}
-      {!isLoaded ? (
-        <SectionPlaceholder minHeight="350px" />
-      ) : (
-        <article className="bg-gradient-to-br from-card via-card/98 to-card border border-border rounded-2xl p-8 shadow-lg">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-7">
-            🔄 دليلك الشامل لتحويل التاريخ من هجري إلى ميلادي والعكس
-          </h2>
-          
-          <div className="space-y-5 text-foreground/85 leading-relaxed">
-            <p>
-              تُعتبر <strong>خدمة تحويل التاريخ من هجري إلى ميلادي</strong> من أهم الخدمات الرقمية في عصرنا 
-              الحالي. سواء كنت تبحث عن طريقة بسيطة <strong>لتحويل التاريخ من هجري الى ميلادي</strong> لإتمام 
-              معاملاتك الرسمية، أو تحتاج معرفة <strong>التاريخ الهجري اليوم</strong> لمناسبة دينية، فإن <strong>خدمة 
-              تحويل التاريخ</strong> لدينا توفر لك الدقة والسرعة المطلوبة <strong>بسهولة</strong> تامة.
-            </p>
-            
-            <p>
-              عندما تحتاج <strong>لتحويل التاريخ من هجري إلى ميلادي</strong>، فإن <strong>أداة تحويل التاريخ</strong> المجانية تقدم لك 
-              النتائج فوراً بضغطة زر واحدة. نستخدم <strong>التقويم الهجري</strong> (<strong>تقويم أم القرى</strong>) المعتمد رسمياً بالمملكة 
-              العربية السعودية، مما يضمن دقة مطلقة عند <strong>تحويل التاريخ من هجري الى ميلادي 
-              والعكس</strong> في جميع معاملاتك.
-            </p>
-            
-            <div className="bg-primary/10 rounded-xl p-6 border border-primary/20">
-              <h3 className="text-xl font-bold text-foreground mb-4">
-                ⚡ مميزات خدمة تحويل التاريخ لدينا:
-              </h3>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="text-primary mt-1">✓</span>
-                  <span>
-                    <strong>تحويل التاريخ من هجري إلى ميلادي</strong> بدقة تامة معتمدة على <strong>التقويم الهجري</strong> الرسمي
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-primary mt-1">✓</span>
-                  <span>
-                    معرفة <strong>التاريخ الهجري اليوم</strong> و<strong>التاريخ الميلادي</strong> محدّث تلقائياً كل يوم
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-primary mt-1">✓</span>
-                  <span>
-                    إمكانية <strong>تحويل التاريخ من هجري إلى ميلادي والعكس</strong> في نفس الأداة <strong>بسهولة</strong>
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-primary mt-1">✓</span>
-                  <span>
-                    سرعة فائقة - <strong>حوّل التاريخ</strong> في أقل من ثانية واحدة بدقة عالية
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </article>
-      )}
-
-      {/* Use Cases - متى تحتاج لتحويل التاريخ */}
-      {!isLoaded ? (
-        <SectionPlaceholder minHeight="300px" />
-      ) : (
-        <article className="bg-card border border-border rounded-2xl p-7 shadow-md">
-          <h2 className="text-2xl font-bold text-foreground mb-6">
-            💼 متى تحتاج لتحويل التاريخ من هجري الى ميلادي؟
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-primary/5 rounded-xl p-5 border border-primary/10">
-              <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-                <span className="text-2xl">📄</span>
-                المعاملات الرسمية في المملكة السعودية
-              </h3>
-              <p className="text-foreground/80 leading-relaxed">
-                عند إتمام معاملاتك الحكومية، قد تحتاج <strong>لتحويل التاريخ من هجري</strong> الموجود في 
-                شهادة ميلادك إلى <strong>التاريخ الميلادي</strong>. استخدم <strong>خدمة تحويل التاريخ</strong> لدينا 
-                للحصول على <strong>التاريخ</strong> المطابق بدقة تامة <strong>بسهولة</strong>.
-              </p>
-            </div>
-            
-            <div className="bg-primary/5 rounded-xl p-5 border border-primary/10">
-              <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-                <span className="text-2xl">🎓</span>
-                الدراسة والتعليم
-              </h3>
-              <p className="text-foreground/80 leading-relaxed">
-                الطلاب والباحثون كثيراً ما يحتاجون <strong>لتحويل التاريخ من هجري إلى ميلادي</strong> في 
-                أبحاثهم وأوراقهم العلمية. <strong>أداة تحويل التاريخ</strong> تسهّل عليك <strong>تحويل التاريخ من هجري الى ميلادي</strong> 
-                لأي فترة زمنية تحتاجها <strong>بسهولة والعكس</strong>.
-              </p>
-            </div>
-            
-            <div className="bg-primary/5 rounded-xl p-5 border border-primary/10">
-              <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-                <span className="text-2xl">🕌</span>
-                المناسبات الدينية بالتقويم الهجري
-              </h3>
-              <p className="text-foreground/80 leading-relaxed">
-                لمعرفة مواعيد شهر رمضان، الحج، والأعياد الإسلامية، يمكنك <strong>حوّل التاريخ</strong> من 
-                <strong> التاريخ الميلادي</strong> إلى <strong>التاريخ الهجري بسهولة</strong>. تساعدك <strong>أداة تحويل التاريخ</strong> على 
-                معرفة <strong>التاريخ الهجري اليوم</strong> والتخطيط لمناسباتك الدينية حسب <strong>التقويم الهجري والميلادي</strong>.
-              </p>
-            </div>
-            
-            <div className="bg-primary/5 rounded-xl p-5 border border-primary/10">
-              <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-                <span className="text-2xl">💰</span>
-                العقود والمواعيد
-              </h3>
-              <p className="text-foreground/80 leading-relaxed">
-                في العقود التجارية والاتفاقيات، قد تحتاج <strong>التاريخ من هجري الى ميلادي</strong> لتحديد 
-                المدد الزمنية بدقة. استخدم <strong>خدمة تحويل</strong> <strong>التاريخ</strong> لدينا لضمان توافق 
-                التواريخ في جميع مستنداتك القانونية <strong>والعكس بسهولة</strong>.
-              </p>
-            </div>
-          </div>
-        </article>
-      )}
-
-      {/* Tips Section - نصائح للاستخدام */}
-      {!isLoaded ? (
-        <SectionPlaceholder minHeight="280px" />
-      ) : (
-        <article className="bg-gradient-to-br from-primary/5 via-primary/3 to-transparent border border-primary/20 rounded-2xl p-8">
-          <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-            <span className="text-3xl">💡</span>
-            نصائح لتحويل التاريخ بسهولة ودقة
-          </h2>
-          
-          <div className="space-y-5">
-            <div className="bg-card rounded-xl p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-foreground mb-3">
-                1️⃣ كيف تستخدم أداة <strong>تحويل التاريخ من هجري إلى ميلادي</strong>؟
-              </h3>
-              <p className="text-foreground/80 leading-relaxed">
-                الأمر بسيط جداً! اختر نوع <strong>التحويل</strong> (<strong>التاريخ الهجري</strong> → <strong>التاريخ الميلادي</strong> أو <strong>والعكس</strong>)، 
-                ثم أدخل <strong>التاريخ</strong> المطلوب. عندما تضغط زر "<strong>تحويل</strong>"، ستحصل على النتيجة فوراً. يمكنك استخدام 
-                <strong> محول التاريخ لتحويل التاريخ</strong> في أي وقت مجاناً <strong>بدون</strong> قيود <strong>بسهولة</strong> تامة.
-              </p>
-            </div>
-            
-            <div className="bg-card rounded-xl p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-foreground mb-3">
-                2️⃣ لماذا نستخدم التقويم الهجري (أم القرى)؟
-              </h3>
-              <p className="text-foreground/80 leading-relaxed">
-                عند <strong>تحويل التاريخ من هجري الى ميلادي</strong>، نعتمد على <strong>التقويم الهجري</strong> (<strong>تقويم أم القرى</strong>) 
-                المعتمد رسمياً في السعودية. هذا يضمن أن نتائج <strong>تحويل التاريخ من هجري إلى ميلادي 
-                والعكس</strong> تطابق التواريخ الرسمية المستخدمة في المعاملات الحكومية بدقة عالية.
-              </p>
-            </div>
-            
-            <div className="bg-card rounded-xl p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-foreground mb-3">
-                3️⃣ هل يمكن حفظ نتائج تحويل التاريخ؟
-              </h3>
-              <p className="text-foreground/80 leading-relaxed">
-                نعم! بعد أن تقوم <strong>بتحويل التاريخ من هجري إلى ميلادي</strong> أو <strong>والعكس</strong>، يمكنك نسخ النتيجة 
-                مباشرة أو أخذ لقطة شاشة. كما يمكنك استخدام <strong>خدمة تحويل التاريخ</strong> في أي وقت للرجوع 
-                إلى نفس <strong>التاريخ الهجري</strong> أو <strong>التاريخ الميلادي</strong> مستقبلاً <strong>بسهولة</strong>.
-              </p>
-            </div>
-          </div>
-        </article>
-      )}
-
-      {/* Hijri Months Reference - الشهور الهجرية */}
-      {!isLoaded ? (
-        <SectionPlaceholder minHeight="320px" />
-      ) : (
-        <article className="bg-card rounded-2xl p-6 md:p-8 shadow-soft border border-border/30">
-          <h2 className="text-2xl font-bold text-foreground mb-4">
-            الشهور بالتقويم الهجري 1446 هـ - التاريخ الهجري والميلادي
-          </h2>
-          <p className="text-foreground/70 mb-6">
-            تعرف على أشهر <strong>التقويم الهجري</strong> مع إمكانية <strong>تحويل التاريخ من هجري إلى ميلادي والعكس</strong> لكل شهر <strong>بسهولة</strong>
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
             {hijriMonths.map((month) => (
-              <div
-                key={month.num}
-                className="p-4 rounded-xl bg-muted/50 border border-border/30 text-center hover:bg-primary/5 transition-colors"
-              >
-                <span className="block text-sm text-foreground/60 mb-1">
-                  الشهر {month.num} هجري
-                </span>
-                <span className="block font-semibold text-foreground">
-                  {month.name}
-                </span>
-                {month.note && (
-                  <span className="block text-xs text-primary mt-1">
-                    {month.note}
-                  </span>
-                )}
+              <div key={month.num} className="p-2 rounded-lg bg-muted/50 border border-border/30 text-center text-sm">
+                <span className="block text-xs text-foreground/60">{month.num}</span>
+                <span className="font-medium text-foreground">{month.name}</span>
               </div>
             ))}
           </div>
         </article>
       )}
 
-      {/* Additional Info - معلومات إضافية */}
+      {/* Use Cases */}
       {!isLoaded ? (
-        <SectionPlaceholder minHeight="200px" />
+        <SectionPlaceholder minHeight="120px" />
       ) : (
-        <article className="bg-card rounded-2xl p-6 md:p-8 shadow-soft border border-border/30">
-          <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
-            <BookIcon />
-            معلومات مفيدة عن التقويم الهجري والميلادي
+        <article className="bg-gradient-to-br from-primary/5 to-transparent border border-primary/20 rounded-2xl p-6">
+          <h2 className="text-xl font-bold text-foreground mb-3">
+            💼 متى تحتاج لتحويل التاريخ من هجري الى ميلادي؟
           </h2>
-          <div className="space-y-4 text-foreground/80 leading-relaxed">
-            <p>
-              <strong>نبذة عن التقويم الهجري:</strong> <strong>التقويم الهجري</strong> (Hijri Calendar) قمري يبدأ من هجرة الرسول من مكة للمدينة. 
-              يتكون العام <strong>الهجري</strong> من 12 شهراً قمرياً، ويستخدم لتحديد المناسبات الإسلامية مثل رمضان والحج. 
-              <strong>تحويل التاريخ من هجري إلى ميلادي والعكس</strong> ضروري لمعرفة المواعيد بدقة في المملكة السعودية وغيرها.
-            </p>
-            <p>
-              <strong>الشهور الهجرية:</strong> محرم، صفر، ربيع الأول، ربيع الآخر، جمادى الأولى، جمادى الآخرة، 
-              رجب، شعبان، رمضان، شوال، ذو القعدة، ذو الحجة. عند <strong>تحويل التاريخ من هجري الى ميلادي 
-              والعكس</strong> يجب مراعاة الفرق لضمان دقة النتائج باستخدام <strong>محول التاريخ الهجري</strong>.
-            </p>
-            <p>
-              <strong>استخدامات عملية:</strong> يمكنك استخدام <strong>تحويل التاريخ والعكس</strong> لموعد ميلادك للتسجيل بالمواقع الحكومية، 
-              معرفة المواعيد المهمة <strong>بالتقويم الهجري والميلادي</strong>، التخطيط للحج، وحساب العمر <strong>بسهولة</strong>. 
-              سواء كنت بالسعودية أو مكة أو مدن أخرى، <strong>أداة تحويل التاريخ</strong> متاحة على الإنترنت مجاناً.
-            </p>
+          <div className="grid md:grid-cols-3 gap-3 text-sm">
+            <div className="flex items-start gap-2">
+              <CheckIcon />
+              <span><strong>المعاملات الرسمية</strong>: <strong>لتحويل التاريخ من هجري</strong> في الوثائق</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <CheckIcon />
+              <span><strong>المناسبات الدينية</strong>: <strong>حوّل التاريخ</strong> لمعرفة مواعيد رمضان</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <CheckIcon />
+              <span><strong>العقود</strong>: <strong>التاريخ من هجري الى ميلادي بسهولة</strong></span>
+            </div>
           </div>
+        </article>
+      )}
+
+      {/* Additional Info */}
+      {!isLoaded ? (
+        <SectionPlaceholder minHeight="100px" />
+      ) : (
+        <article className="bg-card rounded-2xl p-6 shadow-soft border border-border/30">
+          <h2 className="text-xl font-bold text-foreground mb-3">
+            معلومات عن التقويم الهجري والميلادي
+          </h2>
+          <p className="text-foreground/80 leading-relaxed text-sm">
+            <strong>التقويم الهجري</strong> يبدأ من هجرة الرسول ﷺ من مكة للمدينة. <strong>تحويل التاريخ من هجري إلى ميلادي والعكس</strong> ضروري
+            لمعرفة المواعيد بدقة. <strong>خدمة تحويل التاريخ</strong> متاحة على الإنترنت مجاناً <strong>بسهولة</strong> عبر <strong>محول التاريخ الهجري</strong>.
+          </p>
         </article>
       )}
     </section>
