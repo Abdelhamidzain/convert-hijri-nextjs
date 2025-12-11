@@ -1,6 +1,7 @@
 'use client'
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { SectionSkeleton } from "./LoadingSkeleton";
 
 // ============ Inline SVG Icons ============
 
@@ -134,6 +135,17 @@ const BookIcon: React.FC<IconProps> = (props) => (
 // ============ Main SEOContent Component ============
 
 const SEOContent: React.FC = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  
+  useEffect(() => {
+    // تأخير بسيط للسماح بتحميل المحتوى الرئيسي أولاً
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   const hijriMonths: {
     num: number;
     name: string;
@@ -167,7 +179,16 @@ const SEOContent: React.FC = () => {
   return (
     <section className="mt-16 space-y-12">
       {/* Quick Answer Box */}
-      <article className="bg-primary/5 rounded-2xl p-6 md:p-8 border-2 border-primary/20">
+      {!isLoaded ? (
+        <div className="bg-primary/5 rounded-2xl p-6 md:p-8 border-2 border-primary/20" style={{ minHeight: '150px' }}>
+          <div className="h-8 skeleton rounded w-2/3 mb-4" />
+          <div className="space-y-2">
+            <div className="h-4 skeleton rounded w-full" />
+            <div className="h-4 skeleton rounded w-5/6" />
+          </div>
+        </div>
+      ) : (
+        <article className="bg-primary/5 rounded-2xl p-6 md:p-8 border-2 border-primary/20">
         <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
           <StarIcon />
           كم التاريخ الهجري اليوم؟

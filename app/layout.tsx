@@ -47,6 +47,74 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ar" dir="rtl">
+      <head>
+        {/* Critical CSS Inline - للتحميل الفوري */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          /* Critical CSS - يحمل فوراً قبل أي شيء */
+          *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}
+          html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}
+          body{margin:0;line-height:inherit;min-height:100vh;background-color:hsl(var(--background));color:hsl(var(--foreground))}
+          
+          /* Colors - تحميل فوري */
+          :root{
+            --background:0 0% 100%;
+            --foreground:222.2 84% 4.9%;
+            --card:0 0% 100%;
+            --card-foreground:222.2 84% 4.9%;
+            --primary:221.2 83.2% 53.3%;
+            --primary-foreground:210 40% 98%;
+            --muted:210 40% 96.1%;
+            --muted-foreground:215.4 16.3% 46.9%;
+            --border:214.3 31.8% 91.4%;
+          }
+          .dark{
+            --background:222.2 84% 4.9%;
+            --foreground:210 40% 98%;
+            --card:222.2 84% 4.9%;
+            --card-foreground:210 40% 98%;
+            --primary:217.2 91.2% 59.8%;
+            --primary-foreground:222.2 47.4% 11.2%;
+            --muted:217.2 32.6% 17.5%;
+            --muted-foreground:215 20.2% 65.1%;
+            --border:217.2 32.6% 17.5%;
+          }
+          
+          /* Layout Skeleton - يظهر فوراً */
+          .pattern-islamic{
+            background-color:hsl(var(--background));
+            background-image:
+              radial-gradient(circle at 25px 25px, hsl(var(--primary) / 0.05) 2%, transparent 0%),
+              radial-gradient(circle at 75px 75px, hsl(var(--primary) / 0.05) 2%, transparent 0%);
+            background-size:100px 100px;
+            min-height:100vh;
+          }
+          
+          /* Placeholder للمحتوى */
+          .skeleton{
+            animation:pulse 2s cubic-bezier(0.4,0,0.6,1) infinite;
+            background-color:hsl(var(--muted));
+            border-radius:0.5rem;
+          }
+          @keyframes pulse{
+            0%,100%{opacity:1}
+            50%{opacity:.5}
+          }
+          
+          /* إخفاء المحتوى قبل التحميل */
+          .lazy-load{
+            min-height:200px;
+            background:hsl(var(--card));
+            border-radius:1rem;
+          }
+        `}} />
+        
+        {/* Preconnect للخطوط والموارد المهمة */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* DNS Prefetch */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+      </head>
       <body className="min-h-screen bg-background font-sans antialiased">
         {children}
       </body>
