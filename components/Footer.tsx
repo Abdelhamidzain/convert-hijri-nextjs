@@ -17,22 +17,22 @@ export function Footer() {
             <h3 className="font-bold text-foreground mb-4">روابط سريعة</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/" className="text-muted-foreground hover:text-primary transition-colors" title="محول التاريخ الهجري للميلادي">
+                <Link href="/" className="text-muted-foreground hover:text-primary transition-colors" title="محول التاريخ الهجري للميلادي">
                   تحويل التاريخ
                 </Link>
               </li>
               <li>
-                <Link to="/date/today" className="text-muted-foreground hover:text-primary transition-colors" title="تاريخ اليوم هجري وميلادي">
+                <Link href="/date/today" className="text-muted-foreground hover:text-primary transition-colors" title="تاريخ اليوم هجري وميلادي">
                   تاريخ اليوم
                 </Link>
               </li>
               <li>
-                <Link to="/how-old-am-i/hijri" className="text-muted-foreground hover:text-primary transition-colors" title="حساب العمر بالتاريخ الهجري">
+                <Link href="/how-old-am-i/hijri" className="text-muted-foreground hover:text-primary transition-colors" title="حساب العمر بالتاريخ الهجري">
                   حساب العمر بالهجري
                 </Link>
               </li>
               <li>
-                <Link to="/how-old-am-i/gregorian" className="text-muted-foreground hover:text-primary transition-colors" title="حساب العمر بالتاريخ الميلادي">
+                <Link href="/how-old-am-i/gregorian" className="text-muted-foreground hover:text-primary transition-colors" title="حساب العمر بالتاريخ الميلادي">
                   حساب العمر بالميلادي
                 </Link>
               </li>
@@ -47,7 +47,7 @@ export function Footer() {
                 year >= HIJRI_YEAR_RANGE.start && year <= HIJRI_YEAR_RANGE.end && (
                   <li key={year}>
                     <Link 
-                      to={`/calendar/${year}`} 
+                      href={`/calendar/${year}`} 
                       className="text-muted-foreground hover:text-primary transition-colors"
                       title={`التقويم الهجري لعام ${year}`}
                     >
@@ -65,7 +65,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link 
-                  to={`/convert/hijri-to-gregorian/${hijri.year}`}
+                  href={`/convert/hijri-to-gregorian/${hijri.year}`}
                   className="text-muted-foreground hover:text-primary transition-colors"
                   title={`تحويل سنة ${hijri.year} هجري لميلادي`}
                 >
@@ -74,7 +74,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  to={`/convert/hijri-to-gregorian/${hijri.year + 1}`}
+                  href={`/convert/hijri-to-gregorian/${hijri.year + 1}`}
                   className="text-muted-foreground hover:text-primary transition-colors"
                   title={`تحويل سنة ${hijri.year + 1} هجري لميلادي`}
                 >
@@ -83,7 +83,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  to={`/convert/gregorian-to-hijri/${gregorian.year}`}
+                  href={`/convert/gregorian-to-hijri/${gregorian.year}`}
                   className="text-muted-foreground hover:text-primary transition-colors"
                   title={`تحويل سنة ${gregorian.year} ميلادي لهجري`}
                 >
@@ -92,7 +92,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  to={`/convert/gregorian-to-hijri/${gregorian.year + 1}`}
+                  href={`/convert/gregorian-to-hijri/${gregorian.year + 1}`}
                   className="text-muted-foreground hover:text-primary transition-colors"
                   title={`تحويل سنة ${gregorian.year + 1} ميلادي لهجري`}
                 >
@@ -109,7 +109,7 @@ export function Footer() {
               {CITIES.slice(0, 6).map(city => (
                 <li key={city.slug}>
                   <Link 
-                    to={`/date-today/${city.slug}`}
+                    href={`/date-today/${city.slug}`}
                     className="text-muted-foreground hover:text-primary transition-colors"
                     title={`تاريخ اليوم في ${city.name} هجري وميلادي`}
                   >
@@ -129,7 +129,7 @@ export function Footer() {
             {[1444, 1445, 1446, 1447, 1448, 1449, 1450].map(year => (
               <Link 
                 key={`cal-${year}`}
-                to={`/calendar/${year}`}
+                href={`/calendar/${year}`}
                 className="text-muted-foreground hover:text-primary transition-colors"
                 title={`التقويم الهجري ${year}`}
               >
@@ -141,7 +141,7 @@ export function Footer() {
             {[2024, 2025, 2026, 2027, 2028].map(year => (
               <Link 
                 key={`greg-${year}`}
-                to={`/convert/gregorian-to-hijri/${year}`}
+                href={`/convert/gregorian-to-hijri/${year}`}
                 className="text-muted-foreground hover:text-primary transition-colors"
                 title={`تحويل ${year} ميلادي`}
               >
@@ -153,7 +153,7 @@ export function Footer() {
             {CITIES.slice(6).map(city => (
               <Link 
                 key={city.slug}
-                to={`/date-today/${city.slug}`}
+                href={`/date-today/${city.slug}`}
                 className="text-muted-foreground hover:text-primary transition-colors"
                 title={`تاريخ اليوم في ${city.name}`}
               >
@@ -166,12 +166,12 @@ export function Footer() {
         {/* Copyright */}
         <div className="text-center text-sm text-muted-foreground border-t border-border pt-6">
           <p>
-            <Link to="/" className="hover:text-primary" title="محول التاريخ الهجري">محول التاريخ الهجري</Link>
+            <Link href="/" className="hover:text-primary" title="محول التاريخ الهجري">محول التاريخ الهجري</Link>
             {' - '}
             أداة مجانية لـ
-            <Link to="/" className="hover:text-primary mx-1" title="تحويل التاريخ من هجري لميلادي">تحويل التاريخ من هجري لميلادي</Link>
+            <Link href="/" className="hover:text-primary mx-1" title="تحويل التاريخ من هجري لميلادي">تحويل التاريخ من هجري لميلادي</Link>
             و
-            <Link to="/" className="hover:text-primary mx-1" title="تحويل التاريخ من ميلادي لهجري">تحويل التاريخ من ميلادي لهجري</Link>
+            <Link href="/" className="hover:text-primary mx-1" title="تحويل التاريخ من ميلادي لهجري">تحويل التاريخ من ميلادي لهجري</Link>
           </p>
           <p className="mt-2">© {gregorian.year} جميع الحقوق محفوظة</p>
         </div>
