@@ -1,3 +1,5 @@
+'use client'
+
 import { HIJRI_MONTHS } from '@/lib/hijriConverter';
 
 interface ContentClusterProps {

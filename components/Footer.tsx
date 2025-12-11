@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom';
+'use client'
+
+import Link from 'next/link';
 import { getTodayDates } from '@/lib/hijriConverter';
 import { CITIES, HIJRI_YEAR_RANGE, GREGORIAN_YEAR_RANGE } from '@/lib/seoData';
 
