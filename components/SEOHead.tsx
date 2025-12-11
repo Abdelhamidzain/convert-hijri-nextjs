@@ -5,9 +5,9 @@ import type { PageSEO } from '@/lib/seoData';
 const DEFAULT_BASE_URL = 'https://convert-hijri.com';
 
 function getBaseUrl(): string {
-  // لو فيه متغير بيئة من Vite
-  // مثال: VITE_SITE_URL=https://convert-hijri.com
-  const envUrl = import.meta.env?.VITE_SITE_URL as string | undefined;
+  // لو فيه متغير بيئة من Next.js
+  // مثال: NEXT_PUBLIC_SITE_URL=https://convert-hijri.com
+  const envUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
   if (envUrl) return envUrl.replace(/\/+$/, '');
 
