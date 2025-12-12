@@ -3,17 +3,16 @@ import { PageLayout } from '@/components/PageLayout'
 import type { Metadata } from 'next'
 import SEOContent from '@/components/SEOContent'
 
-// Static year to avoid hydration mismatch
 const CURRENT_HIJRI_YEAR = 1446;
 
 export const metadata: Metadata = {
   title: 'تحويل التاريخ الهجري والميلادي - محول دقيق ومجاني',
-  description: 'أداة تحويل التاريخ من هجري إلى ميلادي والعكس بدقة متناهية. اكتشف التاريخ الهجري اليوم عبر تقويم أم القرى.',
-  keywords: 'تحويل, التاريخ, هجري, ميلادي, التقويم, محول',
+  description: 'أداة للتحويل من هجري إلى ميلادي بدقة متناهية. اكتشف تاريخك الحالي عبر تقويم أم القرى.',
+  keywords: 'تحويل, التاريخ, هجري, ميلادي, التقويم, محول, ihijri',
   alternates: { canonical: '/' },
   openGraph: {
     title: 'محول التاريخ الهجري والميلادي',
-    description: 'حوّل من هجري إلى ميلادي بدقة فائقة',
+    description: 'حوّل من هجري إلى ميلادي بدقة وسرعة فائقة',
     url: 'https://convert-hijri.com',
     type: 'website',
     locale: 'ar_SA',
@@ -24,7 +23,7 @@ const webAppSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "محول التاريخ الهجري والميلادي",
-  "alternateName": ["Hijri Date Converter", "Gregorian to Hijri"],
+  "alternateName": ["Hijri Date Converter", "Gregorian to Hijri", "ihijri", "islamicfinder dates"],
   "description": "خدمة مجانية للتحويل بين النظامين القمري والشمسي",
   "url": process.env.NEXT_PUBLIC_SITE_URL || "https://convert-hijri.com",
   "applicationCategory": "UtilityApplication",
@@ -68,14 +67,14 @@ export default function Home() {
             </div>
             
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              تحويل التاريخ الهجري والميلادي بسهولة
+              تحويل التاريخ الهجري والميلادي
             </h1>
             <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto leading-relaxed">
-              المحول الأكثر دقة على الإنترنت. انقل بين النظام القمري والشمسي بسهولة، 
-              واطلع على اليوم الحالي عبر تقويم أم القرى الرسمي.
+              موقع المحول الأكثر دقة على الإنترنت. حوّل بين النظام القمري والشمسي بسرعة، 
+              واطلع على تاريخك الحالي عبر تقويم أم القرى الرسمي.
               <br />
               <span className="text-primary font-semibold mt-2 inline-block">
-                خدمة مجانية - {CURRENT_HIJRI_YEAR} هـ
+                خدمة مجانية للمستخدمين - {CURRENT_HIJRI_YEAR} هـ
               </span>
             </p>
           </div>
@@ -93,20 +92,20 @@ export default function Home() {
               </h2>
               <div className="space-y-4 text-foreground/90 leading-relaxed">
                 <p className="text-base md:text-lg">
-                  أهلاً بك في أفضل أداة على الشبكة! نقدم خدمة موثوقة للتبديل بين التقويم القمري والشمسي. 
-                  إذا كنت تبحث عن تحويل من هجري إلى ميلادي أو بالاتجاه المعاكس، 
-                  فإن المحول يمنحك نتائج فورية بسهولة. نعتمد على تقويم أم القرى المعتمد 
+                  أهلاً بك في أفضل أدوات الشبكة العربي! نقدم خدمة موثوقة للتبديل بين النظام القمري والشمسي. 
+                  إذا كنت تريد القيام بالتحويل من النظام الإسلامي للشمسي أو العكس، 
+                  فإن المحول يمنحك نتائج فورية وسهولة في الاستخدام. نعتمد على تقويم أم القرى المعتمد 
                   في المملكة السعودية لضمان الدقة العالية.
                 </p>
                 
                 <p className="text-base md:text-lg">
-                  يتيح لك الموقع أيضاً معرفة اليوم الحالي بالنظامين بدقة متناهية، واستخدام حاسبة العمر 
-                  لحساب سنواتك بالتقويمين معاً. الخدمة مثالية لمن يريد الانتقال السريع بين النظامين 
-                  بسهولة ودقة. جميع الأدوات متاحة مجاناً على مدار الساعة دون تسجيل.
+                  يتيح لك الموقع أيضاً معرفة تاريخك الحالي بالنظامين بدقة متناهية، واستخدام حاسبة العمر 
+                  لحساب سنواتك والتقويم معاً. الخدمة مثالية لمن يريد الانتقال السريع بين النظامين 
+                  بوسرعة ودقة. جميع أدوات الموقع متاحة مجاناً على مدار الساعة دون الحاجة للتسجيل.
                 </p>
 
                 <p className="text-base md:text-lg">
-                  ما نقدمه: تبديل سريع بين النظامين، عرض اليوم الحالي بالتقويمين، 
+                  ما نقدمه: تبديل سريع بين النظامين، عرض تاريخك الحالي بالنظامين، 
                   استعراض السنوات من 1318 حتى 1500 هـ، حساب العمر بدقة، ومواقيت الصلاة 
                   في مكة والمدن السعودية الكبرى. الخدمة مجانية بالكامل للجميع.
                 </p>
@@ -127,7 +126,7 @@ export default function Home() {
                   </li>
                   <li className="flex gap-3">
                     <span className="bg-primary/10 text-primary w-7 h-7 rounded-full flex items-center justify-center font-bold text-sm">2</span>
-                    <span>أدخل اليوم والشهر والسنة</span>
+                    <span>أدخل البيانات والشهر والسنة المطلوبة</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="bg-primary/10 text-primary w-7 h-7 rounded-full flex items-center justify-center font-bold text-sm">3</span>
@@ -152,7 +151,7 @@ export default function Home() {
                   </li>
                   <li className="flex gap-3">
                     <span className="bg-primary/10 text-primary w-7 h-7 rounded-full flex items-center justify-center font-bold text-sm">3</span>
-                    <span>احصل على المقابل بسهولة ودقة</span>
+                    <span>احصل على المقابل بدقة وسرعة</span>
                   </li>
                 </ol>
               </article>
@@ -170,7 +169,7 @@ export default function Home() {
                   </div>
                   <h3 className="font-bold text-foreground mb-2">سرعة فائقة</h3>
                   <p className="text-foreground/70 text-sm">
-                    تحويل فوري في لحظة واحدة بسهولة بدون انتظار أو تحميل
+                    حوّل فوراً في لحظة واحدة بدون انتظار أو تحميل برامج إضافية
                   </p>
                 </div>
                 
@@ -180,7 +179,7 @@ export default function Home() {
                   </div>
                   <h3 className="font-bold text-foreground mb-2">دقة متناهية</h3>
                   <p className="text-foreground/70 text-sm">
-                    نستخدم التقويم الرسمي (أم القرى) لضمان نتائج صحيحة 100%
+                    نستخدم النظام الرسمي (أم القرى) لضمان نتائج صحيحة 100%
                   </p>
                 </div>
                 
@@ -203,15 +202,15 @@ export default function Home() {
               </h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="font-bold text-lg text-foreground mb-3">النظام القمري (الهجري)</h3>
+                  <h3 className="font-bold text-lg text-foreground mb-3">النظام القمري الإسلامي</h3>
                   <p className="text-foreground/80 leading-relaxed">
                     نظام يعتمد على دورة القمر، يبدأ من الهجرة النبوية الشريفة. يتألف من 12 شهراً 
-                    بإجمالي 354 أو 355 يوماً. يُستخدم في تحديد المناسبات الإسلامية كرمضان والحج، 
+                    بإجمالي 354 أو 355 day. يُستخدم في تحديد المناسبات الإسلامية كرمضان والحج، 
                     وهو النظام الرسمي في المملكة العربية السعودية.
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-foreground mb-3">الشهور القمرية</h3>
+                  <h3 className="font-bold text-lg text-foreground mb-3">الشهور القمرية والميلادية</h3>
                   <p className="text-foreground/80 leading-relaxed">
                     محرم، صفر، ربيع الأول، ربيع الآخر، جمادى الأولى، جمادى الآخرة، 
                     رجب، شعبان، رمضان، شوال، ذو القعدة، ذو الحجة. للحصول على نتائج دقيقة، 
@@ -229,9 +228,9 @@ export default function Home() {
               
               <div className="space-y-5 text-foreground/85 leading-relaxed">
                 <p>
-                  تُعد خدمة التبديل بين النظامين من الأدوات الرقمية الأساسية في حياتنا اليومية. 
-                  سواء احتجت للتحويل لإنجاز معاملة رسمية، أو أردت معرفة اليوم الحالي بالنظام القمري 
-                  لمناسبة دينية، فإن الخدمة توفر لك السرعة والدقة المطلوبة بسهولة تامة.
+                  تُعد خدمة التبديل بين النظامين من أدوات الويب الرقمية الأساسية في حياتنا. 
+                  سواء احتجت للتحويل لإنجاز معاملة رسمية، أو أردت معرفة تاريخك الحالي بالنظام القمري 
+                  لمناسبة دينية، فإن الخدمة توفر لك السرعة والدقة المطلوبة.
                 </p>
                 
                 <p>
@@ -245,11 +244,11 @@ export default function Home() {
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
                       <span className="text-primary mt-1">✓</span>
-                      <span>تحويل دقيق وفق تقويم أم القرى الرسمي المعتمد</span>
+                      <span>حوّل بدقة وفق تقويم أم القرى الرسمي المعتمد</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-primary mt-1">✓</span>
-                      <span>اليوم الحالي بالنظامين يُحدّث تلقائياً بشكل يومي</span>
+                      <span>تاريخك الحالي بالنظامين يُحدّث تلقائياً</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-primary mt-1">✓</span>
@@ -257,7 +256,7 @@ export default function Home() {
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-primary mt-1">✓</span>
-                      <span>سرعة فائقة - النتيجة في أقل من ثانية بسهولة</span>
+                      <span>وسرعة فائقة - النتيجة في أقل من ثانية</span>
                     </li>
                   </ul>
                 </div>
@@ -278,7 +277,7 @@ export default function Home() {
                   </h3>
                   <p className="text-foreground/80 leading-relaxed">
                     أثناء إنجاز المعاملات الرسمية، قد تحتاج للتبديل بين النظامين 
-                    لمطابقة الوثائق. استخدم الخدمة للحصول على النتيجة الصحيحة بسهولة ودقة.
+                    لمطابقة الوثائق. استخدم الخدمة للحصول على النتيجة الصحيحة بدقة حسب الحاجة.
                   </p>
                 </div>
                 
@@ -288,8 +287,8 @@ export default function Home() {
                     البحث والدراسة
                   </h3>
                   <p className="text-foreground/80 leading-relaxed">
-                    يحتاج الباحثون والطلاب للتحويل بين النظامين في دراساتهم. 
-                    الأداة تيسّر عليك الانتقال لأي حقبة زمنية تحتاجها بسهولة.
+                    يحتاج الباحثون والطلاب للقيام بالتحويل بين النظامين في دراساتهم. 
+                    الأداة تيسّر عليك الانتقال لأي حقبة زمنية تحتاجها بسرعة.
                   </p>
                 </div>
                 
@@ -299,8 +298,8 @@ export default function Home() {
                     المناسبات الإسلامية
                   </h3>
                   <p className="text-foreground/80 leading-relaxed">
-                    لمعرفة مواعيد رمضان والحج والأعياد بسهولة. تساعدك الأداة على 
-                    معرفة اليوم الحالي والتخطيط لمناسباتك بكلا النظامين.
+                    لمعرفة مواقيت وأوقات رمضان والحج والأعياد. تساعدك الأداة على 
+                    معرفة تاريخك الحالي والتخطيط لمناسباتك بكلا النظامين.
                   </p>
                 </div>
                 
@@ -311,7 +310,7 @@ export default function Home() {
                   </h3>
                   <p className="text-foreground/80 leading-relaxed">
                     في الاتفاقيات التجارية، قد تحتاج التبديل بين النظامين لتحديد المدد بدقة. 
-                    الخدمة تضمن توافق البيانات في وثائقك القانونية بسهولة.
+                    الخدمة تضمن توافق البيانات في وثائقك القانونية.
                   </p>
                 </div>
               </div>
@@ -331,7 +330,7 @@ export default function Home() {
                   </h3>
                   <p className="text-foreground/80 leading-relaxed">
                     العملية سهلة للغاية! حدد نوع التبديل المطلوب، ثم أدخل البيانات. 
-                    بالضغط على الزر، تحصل على النتيجة فوراً. استخدم المحول مجاناً في أي وقت بسهولة.
+                    بالضغط على الزر، تحصل على النتيجة فوراً. استخدم المحول مجاناً في أي وقت تريد.
                   </p>
                 </div>
                 
@@ -341,17 +340,17 @@ export default function Home() {
                   </h3>
                   <p className="text-foreground/80 leading-relaxed">
                     نعتمد تقويم أم القرى الرسمي في السعودية. هذا يضمن أن النتائج 
-                    تطابق البيانات الرسمية المستخدمة حكومياً في جميع الجهات.
+                    تطابق البيانات الرسمية المستخدمة حكومياً في جميع الجهات، مع إمكانية إضافة ملاحظات.
                   </p>
                 </div>
                 
                 <div className="bg-card rounded-xl p-6 shadow-sm">
                   <h3 className="text-lg font-semibold text-foreground mb-3">
-                    3️⃣ حفظ النتائج
+                    3️⃣ حفظ النتائج والتعديل
                   </h3>
                   <p className="text-foreground/80 leading-relaxed">
                     بعد الحصول على النتيجة، يمكنك نسخها أو التقاط صورة للشاشة. 
-                    الخدمة متاحة دائماً للرجوع إليها لاحقاً بسهولة ودون قيود.
+                    الخدمة متاحة دائماً للرجوع إليها لاحقاً بدون قيود.
                   </p>
                 </div>
               </div>
